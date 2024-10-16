@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración PWA</title>
+    <!-- Añadir el manifiesto para que el navegador lo detecte -->
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <h1>Bienvenido@</h1>
+    <p>En esta práctica se realiza la configuración de una PWA básica.</p>
+
+    <!-- Registrar el Service Worker para habilitar la funcionalidad offline -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+            .then(function(registration) {
+                console.log('El service Worker ha sido registrado con éxito: ', registration);
+            })
+            .catch(function(error) {
+                console.log('Error en el registro del Service Worker:', error);
+            });
+        }
+    </script>
+</body>
+</html>
